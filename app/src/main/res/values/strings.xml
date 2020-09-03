@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">GADS 2020 AAD Practice Project</string>
+    <string name="gads_badge">GADS badge</string>
+    <string name="actionbar_text">LEADERBOARD</string>
+    <string name="badge_image">badge image</string>
+    <string name="submit_button_text">SUBMIT</string>
+    <string name="project_submission_text">Project Submission</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="gads_angle_icon">GADS angle icon</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="email_address_hint">Email Address</string>
+    <string name="github_project_link_hint">Github Project link</string>
+    <string name="submission_confirmation_text">Are you sure?</string>
+    <string name="confirmation_text">YES</string>
+    <string name="cancel_button_description">cancel button</string>
+    <string name="required_error_msg">Required</string>
+    <string name="email_error_msg">Invalid email</string>
+    <string name="submission_successful_msg">Submission Successful</string>
+    <string name="submission_unsuccessful_msg">Submission Unsuccessful</string>
+</resources>
