@@ -22,4 +22,8 @@
         <item name="color">@color/colorSecondary</item>
     </style>
 
+    <style name="MyToolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorOnPrimary">@color/colorAccent</item>
+    </style>
+
 </resources>
