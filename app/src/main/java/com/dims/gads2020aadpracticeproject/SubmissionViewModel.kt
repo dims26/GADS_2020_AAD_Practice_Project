@@ -47,7 +47,8 @@ class SubmissionViewModel(private val submissionService: SubmissionService) : Vi
             }
 
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                if (response.isSuccessful) _submissionLiveData.postValue(LoadState.SUCCESSFUL)
+                if (response.isSuccessful)
+                    _submissionLiveData.postValue(LoadState.SUCCESSFUL)
                 else _submissionLiveData.postValue(LoadState.FAILED)
             }
         })

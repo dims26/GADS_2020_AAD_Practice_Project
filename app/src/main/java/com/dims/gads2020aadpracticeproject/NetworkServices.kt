@@ -1,10 +1,7 @@
 package com.dims.gads2020aadpracticeproject
 
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Url
+import retrofit2.http.*
 
 interface LeadersService {
     //previously called by landingActivity, changed to test altUrlMethod
@@ -15,6 +12,7 @@ interface LeadersService {
 }
 
 interface SubmissionService{
+    @FormUrlEncoded
     @POST
     // pass in the alternate submission url and handle submission
     fun postSubmission(@Url altUrl: String,

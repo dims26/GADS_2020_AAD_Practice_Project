@@ -47,7 +47,7 @@ class LeadersFragment(private val call: Call<List<Leader>>) : Fragment() {
                     }
                     LoadState.FAILED -> {
                         Snackbar.make(this@LeadersFragment.requireView(), "Load Failed", Snackbar.LENGTH_INDEFINITE)
-                            .setAction("RETRY") { viewModel.executeCall() }
+                            .setAction("RETRY") { viewModel.retryCall() }.show()
                     }
                     LoadState.SUCCESSFUL -> {
                         adapter = LeaderItemsAdapter(viewModel.leaders)

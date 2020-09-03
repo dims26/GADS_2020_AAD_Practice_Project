@@ -18,24 +18,27 @@ class LeadersViewModel(private val call: Call<List<Leader>>) : ViewModel() {
         get() = _dataLoadLiveData
     lateinit var leaders: List<Leader>
 
-    fun executeCall() {
-        call.enqueue(object : Callback<List<Leader>> {
-            override fun onFailure(call: Call<List<Leader>>, t: Throwable) {
-                _dataLoadLiveData.postValue(LoadState.FAILED)
-            }
+    private fun executeCall() = call.enqueue(getCallback())
 
-            override fun onResponse(
-                call: Call<List<Leader>>,
-                response: Response<List<Leader>>
-            ) {
-                if (response.isSuccessful){
-                    leaders = response.body()!!
-                    _dataLoadLiveData.postValue(LoadState.SUCCESSFUL)
-                }else _dataLoadLiveData.postValue(LoadState.FAILED)
-            }
-        })
+    fun retryCall() = call.clone().enqueue(getCallback())
+
+
+
+    private fun getCallback() : Callback<List<Leader>> = object : Callback<List<Leader>> {
+        override fun onFailure(call: Call<List<Leader>>, t: Throwable) {
+            _dataLoadLiveData.postValue(LoadState.FAILED)
+        }
+
+        override fun onResponse(
+            call: Call<List<Leader>>,
+            response: Response<List<Leader>>
+        ) {
+            if (response.isSuccessful){
+                leaders = response.body()!!
+                _dataLoadLiveData.postValue(LoadState.SUCCESSFUL)
+            }else _dataLoadLiveData.postValue(LoadState.FAILED)
+        }
     }
-
 }
 
 enum class LoadState{
